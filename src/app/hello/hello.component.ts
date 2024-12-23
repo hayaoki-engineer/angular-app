@@ -13,9 +13,9 @@ export class HelloComponent implements OnInit {
 
   constructor() { }
   
-  // コンポーネントの初期化
+  // コンポーネントの初期化 → 初期値を設定
   ngOnInit(): void {
-    this.title = 'Hello World';
+    this.title = 'Hello-App';
     this.message = 'This is a message';
   }
 }
