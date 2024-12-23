@@ -10,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 export class HelloComponent implements OnInit {
   title: string = '';
   message: string = '';
-  
+  // 現在時刻を保持する
+  now: Date = new Date();
 
-  constructor() { }
+  constructor() {
+    setInterval(() => {
+      // 1秒ごとにnowを更新
+      this.now = new Date();
+    }, 1000);
+  }
   
   // コンポーネントの初期化 → 初期値を設定
   ngOnInit(): void {
@@ -20,8 +26,9 @@ export class HelloComponent implements OnInit {
     this.message = 'This is a message';
   }
 
+  // 現在時刻を取得するメソッド
   today() {
-    return new Date().toLocaleDateString();
+    return this.now.toLocaleDateString();
   }
 }
 
