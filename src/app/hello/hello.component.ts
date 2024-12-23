@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class HelloComponent implements OnInit {
   title: string = '';
   message: string = '';
+  price: number = 0;
 
   constructor() { }
   
@@ -17,6 +18,7 @@ export class HelloComponent implements OnInit {
   ngOnInit(): void {
     this.title = 'Hello-App';
     this.message = 'This is a message';
+    this.price = 12345;
   }
 }
 
