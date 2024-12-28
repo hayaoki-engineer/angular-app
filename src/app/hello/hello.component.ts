@@ -11,11 +11,13 @@ export class HelloComponent implements OnInit {
   // タイトルを保持する
   title: string = '';
   // メッセージを保持する
-  message: string = '';
+  message: string = 'ボタンをクリック';
   // 現在時刻を保持する
   now: Date = new Date();
   // スタイルクラスを保持する
   styleClass: string = 'alert';
+  // クリック回数を保持する
+  count: number = 0;
 
   constructor() {
     setInterval(() => {
@@ -39,6 +41,10 @@ export class HelloComponent implements OnInit {
   // 現在時刻を取得するメソッド
   today() {
     return this.now.toLocaleString();
+  }
+
+  doClick() {
+    this.message = ++this.count + '回クリックされました';
   }
 }
 
