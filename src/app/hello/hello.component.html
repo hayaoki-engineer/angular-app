@@ -1,10 +1,11 @@
 <div>
   <h1>{{ title }}</h1>
   <div class="container">
-    @if (visible) {
-      <p (click)="doClick()" class="alert">This is True</p>
-    } @else {
-      <p (click)="doClick()" class="card">This is False</p>
-    }
+    <p>{{ message }}</p>
+    <ul class="card">
+      @for (item of data;track $index) {
+        <li>{{ item }}</li>
+      }
+    </ul>
   </div>
 </div>
