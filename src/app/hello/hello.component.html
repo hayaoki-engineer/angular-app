@@ -1,7 +1,10 @@
 <div>
   <h1>{{ title }}</h1>
   <div class="container">
-    <p>{{ message }}</p>
-    <input type="text" #field1 (keyup)="doType(field1.value)" />
+    @if (visible) {
+      <p (click)="doClick()" class="alert">This is True</p>
+    } @else {
+      <p (click)="doClick()" class="card">This is False</p>
+    }
   </div>
 </div>
