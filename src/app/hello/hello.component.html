@@ -2,10 +2,26 @@
   <h1>{{ title }}</h1>
   <div class="container">
     <p>{{ message }}</p>
-    <ul class="card">
-      @for (item of data;track $index) {
-        <li>{{ item }}</li>
-      }
-    </ul>
+    <table class="card" [width]="'500px'">
+      <thead>
+        <tr><th>Name</th><th>Age</th></tr>
+      </thead>
+      <tbody>
+        @for (item of data;track item.name) {
+          @if ($even) {
+            <tr [style.color]="'blue'" [style.backgroundColor]="'lightcyan'">
+              <td>{{ item.name }}</td>
+              <td>{{ item.age }}</td>
+            </tr>
+          }
+          @if ($odd) {
+            <tr [style.color]="'yellow'" [style.backgroundColor]="'green'">
+              <td>{{ item.name }}</td>
+              <td>{{ item.age }}</td>
+            </tr>
+          }
+        }
+      </tbody>
+    </table>
   </div>
 </div>

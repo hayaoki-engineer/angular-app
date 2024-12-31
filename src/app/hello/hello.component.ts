@@ -12,10 +12,10 @@ export class HelloComponent implements OnInit {
   title: string = 'Hello-App';
   message: string = '';
   visible: boolean = true;
-  data: string[] = [
-    '最初の項目',
-    '2番目の項目',
-    '最後の項目',
+  data: any[] = [
+    { name: 'John', age: 30 },
+    { name: 'Jane', age: 25 },
+    { name: 'Jim', age: 28 },
   ];
 
   constructor() {}
