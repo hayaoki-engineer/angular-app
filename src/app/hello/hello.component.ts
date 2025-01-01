@@ -9,7 +9,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './hello.component.css',
 })
 export class HelloComponent implements OnInit {
-  constructor() {}
+  title = 'Hello World';
+  message = 'Hello, Angular!';
+  isTemplateVisible = true;
+  count: number = 0;
+
+  showTemplate() {
+    this.isTemplateVisible = !this.isTemplateVisible;
+  }
+
+  countUp() {
+    this.count++;
+  }
 
   // コンポーネントの初期化 → 初期値を設定
   ngOnInit(): void { }
