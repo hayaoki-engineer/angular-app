@@ -1,30 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { NgIf, NgFor } from '@angular/common';
+import { NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
 
 @Component({
   selector: 'app-hello',
   standalone: true,
-  imports: [NgIf, NgFor],
+  imports: [NgSwitch, NgSwitchCase, NgSwitchDefault],
   templateUrl: './hello.component.html',
   styleUrl: './hello.component.css',
 })
 export class HelloComponent implements OnInit {
   title: string = 'Hello-App';
-  message: string = '';
-  visible: boolean = true;
-  data: any[] = [
-    { name: 'John', age: 30 },
-    { name: 'Jane', age: 25 },
-    { name: 'Jim', age: 28 },
-  ];
+  message: string = 'data list';
+  switch: string = 'one';
 
   constructor() {}
 
   // コンポーネントの初期化 → 初期値を設定
-  ngOnInit(): void {}
-
-  doClick() {
-    this.visible = !this.visible;
+  ngOnInit(): void { }
+  
+  doSelect(val: string) {
+    this.switch = val;
   }
 
 }

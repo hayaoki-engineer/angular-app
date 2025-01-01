@@ -2,26 +2,16 @@
   <h1>{{ title }}</h1>
   <div class="container">
     <p>{{ message }}</p>
-    <table class="card" [width]="'500px'">
-      <thead>
-        <tr><th>Name</th><th>Age</th></tr>
-      </thead>
-      <tbody>
-        @for (item of data;track item.name) {
-          @if ($even) {
-            <tr [style.color]="'blue'" [style.backgroundColor]="'lightcyan'">
-              <td>{{ item.name }}</td>
-              <td>{{ item.age }}</td>
-            </tr>
-          }
-          @if ($odd) {
-            <tr [style.color]="'yellow'" [style.backgroundColor]="'green'">
-              <td>{{ item.name }}</td>
-              <td>{{ item.age }}</td>
-            </tr>
-          }
-        }
-      </tbody>
-    </table>
+    <div [ngSwitch]="switch">
+      <p *ngSwitchCase="'one'" class="alert">First</p>
+      <p *ngSwitchCase="'two'" class="alert">Second</p>
+      <p *ngSwitchCase="'three'" class="alert">Third</p>
+      <p *ngSwitchDefault class="alert">Default</p>
+    </div>
+    <select #sel (change)="doSelect(sel.value)">
+      <option value="one">One</option>
+      <option value="two">Two</option>
+      <option value="three">Three</option>
+    </select>
   </div>
 </div>
