@@ -1,17 +1,9 @@
+@let title = 'Hello';
+@let message = 'これは@letのテストです。';
+
 <div>
   <h1>{{ title }}</h1>
   <div class="container">
     <p>{{ message }}</p>
-    <div [ngSwitch]="switch">
-      <p *ngSwitchCase="'one'" class="alert">First</p>
-      <p *ngSwitchCase="'two'" class="alert">Second</p>
-      <p *ngSwitchCase="'three'" class="alert">Third</p>
-      <p *ngSwitchDefault class="alert">Default</p>
-    </div>
-    <select #sel (change)="doSelect(sel.value)">
-      <option value="one">One</option>
-      <option value="two">Two</option>
-      <option value="three">Three</option>
-    </select>
   </div>
 </div>
