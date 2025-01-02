@@ -2,19 +2,29 @@
   <h1>{{ title }}</h1>
   <div class="container">
     <p>{{ message }}</p>
+
     <button (click)="showTemplate()">Show Template</button>
     <div>
       @if (isTemplateVisible) {
-      <ng-container [ngTemplateOutlet]="myTemplate" />
+        <ng-container [ngTemplateOutlet]="myTemplate" 
+          [ngTemplateOutletContext]="{ id: 0, message: msg1, class: 'alert' }"
+        />
+        <ng-container [ngTemplateOutlet]="myTemplate" 
+          [ngTemplateOutletContext]="{ id: 1, message: msg2, class: 'alert' }"
+        />
       }
     </div>
   </div>
 </div>
 
 <!-- テンプレート -->
-<ng-template #myTemplate>
-  <p (click)="countUp()" class="card" [style.cursor]="'pointer'">
-    This is a template fragment.
-    {{ count }}
+<ng-template #myTemplate
+  let-aliasid="id"
+  let-aliasmessage="message"
+  let-aliasclass="class"
+>
+  <p (click)="countUp(aliasid)" class="{{ aliasclass }}" [style.cursor]="'pointer'">
+    {{ aliasmessage }}
+    ({{ count[aliasid] }})
   </p>
 </ng-template>
