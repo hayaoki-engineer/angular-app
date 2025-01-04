@@ -1,32 +1,20 @@
-import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { CurrencyPipe, DatePipe, TitleCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-hello',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CurrencyPipe, DatePipe, TitleCasePipe],
   templateUrl: './hello.component.html',
   styleUrl: './hello.component.css',
 })
 export class HelloComponent implements OnInit {
-  title = 'Hello World';
-  message = 'Hello, Angular!';
-  isTemplateVisible = true;
-  count: number[] = [];
-  msg1 = 'First Message';
-  msg2 = 'Second Message'
+  title = 'hello world';
+  price = 0;
+  date = new Date();
 
-  showTemplate() {
-    this.isTemplateVisible = !this.isTemplateVisible;
-  }
-
-  countUp(n: number) {
-    // 配列の要素が未定義の場合は0を代入
-    if (this.count[n] === undefined) {
-      this.count[n] = 0;
-    }
-    // 配列の要素をインクリメント
-    this.count[n]++;
+  updatePrice(newvalue: number) {
+    this.price = (newvalue * 1.1);
   }
 
   // コンポーネントの初期化 → 初期値を設定
