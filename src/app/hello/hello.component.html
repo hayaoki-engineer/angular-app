@@ -1,9 +1,8 @@
 <div>
-  <h1>{{ title | titlecase }}</h1>
+  <h1>{{ title }}</h1>
   <div class="container">
-    <p>{{ date | date: 'yyyy年MM月dd日' }}</p>
-    <p>{{ price | currency: 'JPY': 'symbol': '1.0-2'}}</p>
-    <input type="number" #input />
-    <button (click)="updatePrice(+input.value)">Click</button>
+    <p>{{ message | myCustom }}</p>
+    <input type="text" #input />
+    <button (click)="changeMessage(input.value)">Click</button>
   </div>
 </div>
